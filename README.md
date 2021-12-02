@@ -13,9 +13,13 @@ First, you need to copy the master.sh script into master node and execute it. if
     "storage-driver": "overlay2"
   }
   EOF
+  
   sudo systemctl enable docker
+  
   sudo systemctl daemon-reload
+  
   sudo systemctl restart docker
+  
   sudo kubeadm reset
   
   
