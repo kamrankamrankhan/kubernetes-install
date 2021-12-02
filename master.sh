@@ -1,36 +1,35 @@
 #!/bin/bash
 
-sudo su
+ 
+sudo apt-get update
 
-apt-get update
+sudo apt-get install -y apt-transport-https
 
-apt-get install -y apt-transport-https
-
-apt install docker.io -y
+sudo  apt install docker.io -y
 
 docker --version
 
-systemctl start docker
+sudo systemctl start docker
 
-systemctl enable docker
+sudo systemctl enable docker
 
-apt-get install curl
+sudo apt-get install curl
 
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg| sudo apt-key add
+sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg| sudo apt-key add
 
-chmod 777 /etc/apt/sources.list.d/
+sudo chmod 777 /etc/apt/sources.list.d/
 
-echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
+sudo echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
 
 cat /etc/apt/sources.list.d/kubernetes.list
 
-apt-get update
+sudo apt-get update
 
-apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
 
-swapoff -a
+sudo swapoff -a
 
-kubeadm init
+sudo kubeadm init
 
 # mkdir -p $HOME/.kube
 
